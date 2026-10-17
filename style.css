@@ -1,0 +1,173 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #247f80;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #fff7e9;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    position: relative;
+    overflow: hidden;
+}
+
+
+h1 {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    margin: 0;
+    font-size: 26px;
+    color: #fff7e9;
+    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.instruction {
+    position: absolute;
+    top: 58px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    margin: 0;
+    font-size: 13px;
+    color: #fff7e9;
+    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.room {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url("imagesat4/roombackground.PNG");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0;
+}
+
+/* The objects are placed over the room background. */
+.object {
+    position: absolute;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 2;
+    transition: transform 0.2s ease;
+}
+
+.object img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.object:hover {
+    transform: scale(1.06);
+}
+
+.object:focus-visible {
+    outline: 2px solid #fff0c4;
+    outline-offset: 4px;
+}
+
+/* Temporary positions. We will adjust them to the drawing. */
+
+/* Lamp - below the clock, bigger */
+.lamp {
+    width: 55%;
+    left: -15%;
+    top: 20%;
+}
+
+/* Radio - on the bedside table */
+.radio {
+    width: 21%;
+    left: 19%;
+    top: 42%;
+}
+
+/* Book - on top of the books on the floor */
+.book {
+    width: 13%;
+    left: 30%;
+    top: 75%;
+}
+
+/* Plant - on the long wall shelf */
+.plant {
+    width: 16%;
+    left: 30%;
+    top: 18%;
+}
+
+/* Teddy bear - middle of the bed */
+.teddy {
+    width: 15%;
+    left: 54%;
+    top: 54%;
+}
+
+
+/* Warm light coming from the lamp */
+.light-effect {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse at 13% 48%,
+        rgba(255, 215, 125, 0.65) 0%,
+        rgba(255, 200, 110, 0.35) 20%,
+        rgba(255, 190, 100, 0.12) 45%,
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.room.lights-on .light-effect {
+    opacity: 1;
+}
+
+.message {
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff7e9;
+    background: rgba(65, 45, 35, 0.7);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.message.show {
+    opacity: 1;
+}
+
+.teddy.hug {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .object, .light-effect, .message {
+        transition: none;
+    }
+}
