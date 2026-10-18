@@ -57,7 +57,23 @@ h1 {
     border-radius: 0;
 }
 
-/* The objects are placed over the room background. */
+
+/*
+To create a warm and cozy bedroom, I used a warm colour palette
+with shades of brown, beige, and soft yellows. I also zoomed out 
+the background of the room taking up to the whole screen so that
+users feel like they are actually inside the room, not just looking
+at a small image on a webpage.
+
+Next I used position absolute to To position objects against 
+the room background. To make the objects move with the room,
+I used percentages to arrange their positions and sizes too. 
+To let users notice about the clickable objects, I made them
+slightly bigger when the mouse is over them. Instead of putting
+volumes of text, this way can let users know that they can click
+on which objects.
+*/
+
 .object {
     position: absolute;
     border: none;
@@ -83,45 +99,36 @@ h1 {
     outline-offset: 4px;
 }
 
-/* Temporary positions. We will adjust them to the drawing. */
-
-/* Lamp - below the clock, bigger */
 .lamp {
     width: 55%;
     left: -15%;
     top: 20%;
 }
 
-/* Radio - on the bedside table */
 .radio {
     width: 21%;
     left: 19%;
     top: 42%;
 }
 
-/* Book - on top of the books on the floor */
 .book {
     width: 13%;
     left: 30%;
     top: 75%;
 }
 
-/* Plant - on the long wall shelf */
 .plant {
     width: 16%;
     left: 30%;
     top: 18%;
 }
 
-/* Teddy bear - middle of the bed */
 .teddy {
     width: 15%;
     left: 54%;
     top: 54%;
 }
 
-
-/* Warm light coming from the lamp */
 .light-effect {
     position: absolute;
     inset: 0;

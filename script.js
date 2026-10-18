@@ -1,5 +1,3 @@
-
- // Get the objects from HTML
 const room = document.getElementById("room");
 const lamp = document.getElementById("lamp");
 const radio = document.getElementById("radio");
@@ -13,13 +11,11 @@ const bookImage = document.getElementById("bookImage");
 const plantImage = document.getElementById("plantImage");
 const message = document.getElementById("message");
 
-// Keep track of the objects
 let lampOn = false;
 let radioOn = false;
 let bookOpen = false;
 let plantBlooming = false;
 
-// Sound effects
 const lampSound = new Audio("audio/lightswitch.mp3");
 const teddySound = new Audio("audio/toysqueak.mp3");
 const plantSound = new Audio("audio/plant.mp3");
@@ -27,7 +23,6 @@ const bookSound = new Audio("audio/bookflipping.mp3");
 const radioPress = new Audio("audio/radiopress.mp3");
 const radioMusic = new Audio("audio/radiosong.mp3");
 
-// Set sound volume
 lampSound.volume = 0.4;
 teddySound.volume = 0.5;
 plantSound.volume = 0.4;
@@ -35,16 +30,13 @@ bookSound.volume = 0.5;
 radioPress.volume = 0.4;
 radioMusic.volume = 0.3;
 
-// Loop the radio music
 radioMusic.loop = true;
 
-// Play sound from the beginning
 function playSound(sound) {
     sound.currentTime = 0;
     sound.play();
 }
 
-// Show a message for 2 seconds
 let messageTimer;
 
 function showMessage(text) {
@@ -58,7 +50,24 @@ function showMessage(text) {
     }, 2000);
 }
 
-// Lamp - turn light on and off
+/*
+Most object interactions are handled by switching images between 
+two states using JavaScript click events.For instance, For instance,
+the lamp can turn on and off, the book can open and close, and 
+the plant can grow flowers.
+
+I wanted to make the interactions feel more responsive therefore
+I had added in sound effects, all of the sounds and musics were used
+in this project are royalty free which are from Pixabay website. To make
+the sound effects more suitable I adjusted the volume a bit low as high 
+volume would not suite with a relaxing mood.
+
+The only challenge that I faced during the developing process was to adjust
+the position and scale of the objects, since I zoomed out the background the 
+placement of the objects were not in right position. To solve this I kept 
+adjusting the percentage values of each object until they were in the right position.
+*/
+
 lamp.addEventListener("click", function () {
     lampOn = !lampOn;
 
@@ -77,7 +86,6 @@ lamp.addEventListener("click", function () {
     }
 });
 
-// Radio - play and pause music
 radio.addEventListener("click", function () {
     radioOn = !radioOn;
 
@@ -96,7 +104,6 @@ radio.addEventListener("click", function () {
     }
 });
 
-// Book - open and close
 book.addEventListener("click", function () {
     bookOpen = !bookOpen;
 
@@ -113,7 +120,6 @@ book.addEventListener("click", function () {
     }
 });
 
-// Plant - grow flowers
 plant.addEventListener("click", function () {
     plantBlooming = !plantBlooming;
 
@@ -129,7 +135,6 @@ plant.addEventListener("click", function () {
     }
 });
 
-// Teddy bear - hug and squeak
 teddy.addEventListener("click", function () {
     teddy.classList.toggle("hug");
 
@@ -137,3 +142,12 @@ teddy.addEventListener("click", function () {
 
     showMessage("A little hug for you ♡");
 });
+
+
+/*
+If this grows into a bigger project, I plan to include extra 
+areas and objects for users to discover I would also improve
+the layout for smaller screens. It was great to see through this 
+prototype how easily click interactions, images, and sound work 
+together to create an interactive experience.
+*/
